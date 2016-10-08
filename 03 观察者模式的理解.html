@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.1.0.min.js"></script>
+    <script src="observe.js"></script>
+</head>
+<body>
+    <button>点击触发page任务</button>
+    <button>点击取消page任务</button>
+    <script>
+
+        //观察者
+        var observe = new Observe();
+
+        //page函数
+        //模拟运行1秒的一个函数
+        function page() {
+            setTimeout(function () {
+                observe.punish("complete");
+            },1000)
+        }
+        
+        observe.subscribe("complete",function () {
+            alert("page任务完成");
+        })
+
+
+    </script>
+</body>
+</html>
